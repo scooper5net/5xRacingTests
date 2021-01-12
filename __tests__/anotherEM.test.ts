@@ -1,6 +1,6 @@
-import { EmployeeManager } from "./pageObjects/EmployeeManager";
+import { fiveXRacing } from "./pageObjects/5xRacing";
 
-const page = new EmployeeManager("chrome");
+const page = new fiveXRacing("chrome");
 
 
 const employees: Array = fetch("https://peaceful-inlet-88854.herokuapp.com/api/employees")
