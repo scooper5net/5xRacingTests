@@ -9,7 +9,7 @@ import {
   
   
   
-  export class EmployeeManager extends BasePage {
+  export class fiveXRacing extends BasePage {
     searchBox: By = By.name("searchBox");
     constructor(options) {
       super(options);

@@ -1,34 +1,8 @@
-import { EmployeeManager, Employee } from "./pageObjects/EmployeeManager";
+import { fiveXRacing } from "./pageObjects/5xRacing";
 
-const employees: Array<Employee> = [
-  {
-    name: "Han Solo",
-    phone: 1111111111,
-    email: "millenium@falcon.rep",
-    title: "Smuggler",
-  },
-  {
-    name: "Luke Skywalker",
-    phone: 2222222222,
-    email: "red5@rogue.rep",
-    title: "Jedi",
-  },
-  {
-    name: "Thrawn",
-    phone: 3333333333,
-    email: "gathrawn@admiralty.emp",
-    title: "Best Villain",
-  },
-  {
-    name: "R2-D2",
-    phone: 4444444444,
-    email: "pottymouth@astromech.rep",
-    title: "Crotchety Old Droid",
-  },
-];
 
 describe("employee manager v2", () => {
-  const page = new EmployeeManager({ browser: "chrome" });
+  const page = new fiveXRacing({ browser: "chrome" });
   beforeEach(async () => {
     await page.navigate();
   });
