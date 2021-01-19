@@ -10,7 +10,18 @@ import {
   
   
   export class fiveXRacing extends BasePage {
-    searchBox: By = By.name("searchBox");
+    // Set all of the locators that I will be using
+    headerLogo: By = By.xpath('//img[@class="wsm-hdr__logo"]');
+    searchBox: By = By.xpath('//input[@title="Search Catalog"]');
+    searchButton: By = By.xpath('//input[@title="Search"]');
+    deleteItem: By = By.xpath('//a[@title="Delete this item from the cart"]');
+    emptyCartMessage: By = By.xpath('//div[@class="wsm_interface_error"]');
+    contactUsLink: By = By.xpath('//a[@title="Contact Us"]');
+    floorpanFromSearch: By = By.xpath('//div/a[@title="5X Racing - 5X Racing Mazda Miata Drop Floorpan Kit"]');
+    findFloorInList: By = By.xpath('//div/a[contains(text(),"Floor")]')
+    addToCart: By = By.xpath('//button[@name="action_cart_add"]');
+    findTotal: By = By.xpath('//span[@class="wsm_cart_total_amount  wsm_cart_total_col2" and contains(text(),"$325.00")]');
+
     constructor(options) {
       super(options);
       this.url =
