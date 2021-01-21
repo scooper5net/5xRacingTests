@@ -4,6 +4,7 @@ import {
     Capabilities,
     until,
     WebDriver,
+    WebElement
   } from "selenium-webdriver";
   import { BasePage } from "./BasePage";
   
@@ -29,12 +30,15 @@ import {
     }
     async navigate() {
       await this.driver.get(this.url);
+      //await this.driver.manage().window().maximize();
       await this.driver.wait(
         until.elementIsEnabled(await this.getElement(this.searchBox))
       );
     }
     async searchFor(searchText: string) {
+      await this.click(this.searchBox);
       await this.setInput(this.searchBox, searchText);
+      await this.click(this.searchButton);
     }
     // async getEmployeeList() {
     //   const employeeList: Array<string> = [];
