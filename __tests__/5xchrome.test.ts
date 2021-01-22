@@ -1,3 +1,4 @@
+import { Key } from "selenium-webdriver";
 import { fiveXRacing } from "./pageObjects/5xRacing";
 
 
@@ -15,13 +16,13 @@ describe("5X Racing Test Chrome", () => {
   // Search for floor
   test("Can search and get good results", async() => {
     await page.searchFor('floor');
-    expect (await page.driver.findElements(page.findFloorInList)).toBeTruthy;
+    let isVisible = (await page.driver.findElement(page.floorpanFromSearch).isEnabled());
+    expect (isVisible).toBeTruthy();
   });
   // Add floor drop kit to the shopping cart
   test("Can add an item to the shopping cart", async() => {
     await page.click(page.floorpanFromSearch);
-    await page.driver.findElement(page.addToCart);
-    await page.click(page.addToCart);
+    await page.driver.findElement(page.addToCart).sendKeys(Key.RETURN);
     await page.driver.sleep(2000);
     let price = (await (await page.driver.findElement(page.findTotal)).getText());
     expect (price).toEqual("$325.00");
@@ -33,9 +34,12 @@ describe("5X Racing Test Chrome", () => {
     let isVisible = (await page.driver.findElement(page.emptyCartMessage).isEnabled());
     expect (isVisible).toBeTruthy();
   });
-  // // Contact Us page has contact info
-  // test("Contact Us page has contact info", async() => {
-
-  // });
+  // Contact Us page has contact info
+  test("Contact Us page has contact info", async() => {
+    await page.click(page.contactUsLink);
+    await page.driver.sleep(2000);
+    let isVisible = (await (await page.driver.findElement(page.contactEmailAddress)).getText());
+    expect (isVisible).toBeDefined();
+  });
 
 });
