@@ -6,7 +6,7 @@ describe("5X Racing Test FireFox", () => {
   afterAll(async () => {
     await page.driver.quit();
   });
-  // Nacigate to the home page, and make sure that the 
+  // Navigate to the home page, and make sure that the 
   // 5X Racing logo is visible in the header
   test("Can navigate to the home page.", async() => {
     await page.navigate();
