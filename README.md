@@ -8,3 +8,7 @@ The tests which are completed here are...
 3) Add the Drop Floorpan kit to the cart and verify the total in the next page.
 4) remove the item from the cart and make sure we get a message that the cart is empty.
 5) Go to the contact us page and make sure an email is present for the company.
+
+To install and get this project running...
+1) Clone the repo
+2) At your command line, cd into the repo and run 'npm i' to install all dependencies
