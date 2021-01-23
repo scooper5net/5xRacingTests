@@ -1,3 +1,4 @@
+import { Driver } from "selenium-webdriver/chrome";
 import { fiveXRacing } from "./pageObjects/5xRacing";
 
 describe("5X Racing Test FireFox", () => {
@@ -14,7 +15,8 @@ describe("5X Racing Test FireFox", () => {
   // Search for floor
   test("Can search and get good results", async() => {
     await page.searchFor('floor');
-    expect (await page.driver.findElements(page.findFloorInList)).toBeTruthy;
+    let isVisible = (await page.driver.findElement(page.floorpanFromSearch).isEnabled());
+    expect (isVisible).toBeTruthy();
   });
   // Add floor drop kit to the shopping cart
   test("Can add an item to the shopping cart", async() => {
@@ -32,9 +34,12 @@ describe("5X Racing Test FireFox", () => {
     let isVisible = (await page.driver.findElement(page.emptyCartMessage).isEnabled());
     expect (isVisible).toBeTruthy();
   });
-  // // Contact Us page has contact info
-  // test("Contact Us page has contact info", async() => {
-
-  // });
+  // Contact Us page has contact info
+  test("Contact Us page has contact info", async() => {
+    await page.click(page.contactUsLink);
+    await page.driver.sleep(2000);
+    let isVisible = (await (await page.driver.findElement(page.contactEmailAddress)).getText());
+    expect (isVisible).toBeDefined();
+  });
 
 });

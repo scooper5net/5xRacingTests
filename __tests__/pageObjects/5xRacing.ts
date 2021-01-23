@@ -19,9 +19,10 @@ import {
     emptyCartMessage: By = By.xpath('//div[@class="wsm_interface_error"]');
     contactUsLink: By = By.xpath('//a[@title="Contact Us"]');
     floorpanFromSearch: By = By.xpath('//div/a[@title="5X Racing - 5X Racing Mazda Miata Drop Floorpan Kit"]');
-    findFloorInList: By = By.xpath('//div/a[contains(text(),"Floor")]')
+    findFloorInList: By = By.xpath('//div/a[@title="5X Racing - 5X Racing Mazda Miata Drop Floorpan Kit"]')
     addToCart: By = By.xpath('//button[@name="action_cart_add"]');
     findTotal: By = By.xpath('//span[@class="wsm_cart_total_amount  wsm_cart_total_col2" and contains(text(),"$325.00")]');
+    contactEmailAddress: By = By.xpath('//a[contains(text(),"team@5xracing.com")]');
 
     constructor(options) {
       super(options);
