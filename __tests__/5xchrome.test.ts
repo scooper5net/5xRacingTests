@@ -1,3 +1,4 @@
+import { Key } from "selenium-webdriver";
 import { fiveXRacing } from "./pageObjects/5xRacing";
 
 
@@ -20,8 +21,7 @@ describe("5X Racing Test Chrome", () => {
   // Add floor drop kit to the shopping cart
   test("Can add an item to the shopping cart", async() => {
     await page.click(page.floorpanFromSearch);
-    await page.driver.findElement(page.addToCart);
-    await page.click(page.addToCart);
+    await page.driver.findElement(page.addToCart).sendKeys(Key.RETURN);
     await page.driver.sleep(2000);
     let price = (await (await page.driver.findElement(page.findTotal)).getText());
     expect (price).toEqual("$325.00");
